@@ -1,1 +1,116 @@
 
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    box-sizing: border-box;
+    flex-direction: column; /* Allow the title and content to stack vertically */
+  }
+  
+  .wrapper {
+    width: 90%;
+    max-width: 1200px;
+  }
+  
+  /* Heading Styling */
+  h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: black;
+    text-align: center; /* Center the title */
+    margin-top: 0; /* Remove margin from top */
+  }
+  
+  /* Container */
+  .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allow wrapping of boxes when necessary */
+    gap: 20px; /* Adds space between the boxes */
+  }
+  
+  /* Box Styling */
+  .box {
+    position: relative;
+    flex: 1 1 30%; /* Each box takes up 30% width, so 3 boxes in a row */
+    margin: 10px;
+    border: 2px solid black;
+    background-color: #d3d3d3;
+    padding: 20px;
+    box-sizing: border-box;
+    height: 200px;
+    text-align: justify;
+    transition: all 0.3s ease;
+    overflow: hidden; /* Prevent content from overflowing */
+    text-overflow: ellipsis; /* Add ellipsis for overflowing text (optional) */
+  }
+  
+  /* Short Box Styling */
+  .short-box {
+    position: absolute;
+    top: 0; /* Position it at the top of the box */
+    right: 0; /* Position it at the right of the box */
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 1; /* Ensure it stays above the content */
+  }
+  
+  /* Colors for Short Boxes */
+  .pink-bg {
+    background-color: pink;
+    color: black;
+  }
+  
+  .red-bg {
+    background-color: red;
+    color: white;
+  }
+  
+  .skin-bg {
+    background-color: #f5deb3;
+    color: black;
+  }
+  
+  /* Responsive Design */
+  
+  /* For screens smaller than 720px, the third box moves down to a new row */
+  @media (max-width: 720px) {
+    .box {
+      flex: 1 1 100%; /* On small screens, make all boxes take full width */
+      height: auto; /* Allow boxes to grow in height based on content */
+      padding: 10px; /* Reduce padding for mobile */
+    }
+  
+    .container {
+      padding: 0 10px; /* Add some padding to the container for mobile */
+    }
+  
+    h1 {
+      font-size: 28px; /* Adjust title font size for smaller screens */
+    }
+  }
+  
+  /* For larger screens (between 721px and 1024px), the third box will wrap into a new line */
+  @media (min-width: 721px) and (max-width: 1024px) {
+    .container {
+      flex-wrap: wrap; /* Allow the boxes to wrap */
+    }
+  
+    .box {
+      flex: 1 1 calc(50% - 20px); /* Two boxes in the top row, third one wraps */
+    }
+  
+    .box:nth-child(3) {
+      flex-basis: 100%; /* The third box will take up full width and go below */
+    }
+  }
+  
